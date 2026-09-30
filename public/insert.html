@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Add A 2026 Course</title>
+    <link rel='stylesheet' href='style.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="bar" class="insert"></div>
+    <div id="left-bar2"></div>
+    <h1 class="title">Add A Course</h1>
+    <a href="index.html">
+        <h6>Back to Course List</h6>
+    </a>
+    <div class="container">
+        <!-- Course Name entry -->
+        <div class='row mb-3'>
+            <div class='col-md-2'>
+                <label>Course Name</label>
+            </div>
+            <div class='col-md-10'>
+                <input id='courseName' type='text' />
+            </div>
+        </div>
+        <div id='invalid-form' class='alert alert-danger'>&nbsp;</div>
+        <script>
+            let banner = document.getElementById("invalid-form");
+            const errorBanner = document.getElementById('invalid-form');
+            errorBanner.hidden = true;
+        </script>
+
+        <!-- Course Level (dropdown) -->
+        <div class='row mb-3'>
+            <div class='col-md-2'>
+                <label>Course Level</label>
+            </div>
+            <div class='col-md-10'>
+                <select id='courseLevel'>
+                    <option value='100'>100</option>
+                    <option value='200'>200</option>
+                    <option value='300'>300</option>
+                    <option value='400'>400</option>
+                    <option value='500'>500</option>
+                </select>
+            </div>
+            <div id='invalid-form2' class='alert alert-danger'>&nbsp;</div>
+            <script>
+                let banner2 = document.getElementById("invalid-form2");
+                const errorBanner2 = document.getElementById('invalid-form2');
+                errorBanner2.hidden = true;
+            </script>
+        </div>
+
+        <!-- Professor selection (dropdown) -->
+        <div class='row mb-3'>
+            <div class='col-md-2'>
+                <label>Professor Teaching the Course</label>
+            </div>
+            <div class='col-md-10'>
+                <select id='professor'>
+                    <option value='1'>Jack Polifka</option>
+                    <option value='2'>Ted Apel</option>
+                    <option value="3">Amod Damle</option>
+                    <option value='4'>Beret Norman</option>
+                    <option value='5'>Rob Mann</option>
+                    <option value='6'>Aaron Gluck</option>
+                    <option value='7'>Marc Schmalz</option>
+                    <option value='8'>John Smith</option>
+                </select>
+            </div>
+            <div id='invalid-form3' class='alert alert-danger'>&nbsp;</div>
+            <script>
+                let banner3 = document.getElementById("invalid-form3");
+                const errorBanner3 = document.getElementById('invalid-form3');
+                errorBanner3.hidden = true;
+            </script>
+        </div>
+
+        <!-- Class category (dropdown) -->
+        <div class='row mb-3'>
+            <div class='col-md-2'>
+                <label>Class Category</label>
+            </div>
+            <div class='col-md-10'>
+                <select id='classCategory'>
+                    <option value='GIMM'>GIMM</option>
+                    <option value='University Foundations'>University Foundations</option>
+                    <option value='ITM'>ITM</option>
+                    <option value='Anthropology'>Anthropology</option>
+                    <option value='ITM'>ITM</option>
+                    <option value='Math'>Math</option>
+                    <option value='Kine'>Kinesiology</option>
+                </select>
+            </div>
+            <div id='invalid-form4' class='alert alert-danger'>&nbsp;</div>
+            <script>
+                let banner4 = document.getElementById("invalid-form4");
+                const errorBanner4 = document.getElementById('invalid-form4');
+                errorBanner4.hidden = true;
+            </script>
+        </div>
+
+        <!-- Semesters offered (checkboxes) -->
+        <div class='row mb-3'>
+            <div class='col-md-2'>
+                <label>Which semester(s) is this course offered in</label>
+            </div>
+            <div class='col-md-10'>
+                <label><input id='spring' type='checkbox' /> Spring</label>
+                <label><input id='fall' type='checkbox' /> Fall</label>
+            </div>
+            <div id='invalid-form5' class='alert alert-danger'>&nbsp;</div>
+            <script>
+                let banner5 = document.getElementById("invalid-form5");
+                const errorBanner5 = document.getElementById('invalid-form5');
+                errorBanner5.hidden = true;
+            </script>
+        </div>
+
+        <!-- Credit amount (slider) -->
+        <div class='row mb-3'>
+            <div class='col-md-2'>
+                <label>Credit Amount</label>
+            </div>
+            <div class='col-md-10'>
+                <input id='creditAmount' type='range' min='1' max='4' />
+                <span id='creditValue'>2</span>
+            </div>
+            <div id='invalid-form6' class='alert alert-danger'>&nbsp;</div>
+            <script>
+                let slider = document.getElementById("creditAmount");
+                let output = document.getElementById("creditValue");
+                output.innerHTML = slider.value; // Display the default slider value
+
+                // Update the current slider value (each time you drag the slider handle)
+                slider.oninput = function () {
+                    output.innerHTML = this.value;
+                }
+
+                let banner6 = document.getElementById("invalid-form6");
+                const errorBanner6 = document.getElementById('invalid-form6');
+                errorBanner6.hidden = true;
+            </script>
+        </div>
+
+        <!-- Add button -->
+        <div class='row mb-3'>
+            <div class='col-md-12'>
+                <button id='add'>Add Course</button>
+            </div>
+        </div>
+        <hr />
+
+        <!-- Message if successful -->
+        <div id="success-message" class="alert alert-success">&nbsp;</div>
+        <script>
+                let wBanner = document.getElementById("success-message");
+                const successBanner = document.getElementById('success-message');
+                successBanner.hidden = true;
+            </script>
+    </div>
+
+    <script>
+        const isEmpty = (obj) => Object.keys(obj).length === 0;
+        let hasErrors = false;
+
+        // Event listener for search button
+        document.getElementById('add').addEventListener('click', (event) => {
+            const postParameters = {
+                courseName: document.getElementById('courseName').value,
+                courseLevel: document.getElementById('courseLevel').value,
+                professor_id: document.getElementById('professor').value,
+                classCategory: document.getElementById('classCategory').value,
+                springOffered: document.querySelector('#spring:checked') ? 1 : 0,
+                fallOffered: document.querySelector('#fall:checked') ? 1 : 0,
+                creditAmount: document.getElementById('creditAmount').value
+
+            };
+
+            // Hides success message by default
+            const successMessage = document.getElementById('success-message');
+            successMessage.hidden = true;
+
+            // Error setup
+            const errorMessages = document.getElementsByClassName('alert-danger');
+            errorBanner.hidden = true;
+            errorBanner2.hidden = true;
+            errorBanner3.hidden = true;
+            errorBanner4.hidden = true;
+            errorBanner5.hidden = true;
+            errorBanner6.hidden = true;
+
+            for (htmlElement of errorMessages) {
+                htmlElement.innerHTML = '&nbsp;';
+            }
+
+            if ((document.getElementById('courseName').value.length > 100) || (document.getElementById('courseName').value.length === 0)) {
+                errorBanner.innerText = 'Please enter a valid course name.';
+                errorBanner.hidden = false;
+                hasErrors = true;
+            }
+            if ((document.getElementById('courseLevel').value != '100') && (document.getElementById('courseLevel').value != '200') && (document.getElementById('courseLevel').value != '300') && (document.getElementById('courseLevel').value != '400') && (document.getElementById('courseLevel').value != '500') && (document.getElementById('courseLevel').value != '600')) {
+                errorBanner2.innerText = 'Please select a valid course level.';
+                errorBanner2.hidden = false;
+                hasErrors = true;
+            }
+            if ((document.getElementById('professor').value != '1') && (document.getElementById('professor').value != '2') && (document.getElementById('professor').value != '3') && (document.getElementById('professor').value != '4') && (document.getElementById('professor').value != '5') && (document.getElementById('professor').value != '6') && (document.getElementById('professor').value != '7') && (document.getElementById('professor').value != '8')) {
+                errorBanner3.innerText = 'Please select a valid professor.';
+                errorBanner3.hidden = false;
+                hasErrors = true;
+            }
+            if ((document.getElementById('classCategory').value != 'GIMM') && (document.getElementById('classCategory').value != 'University Foundations') && (document.getElementById('classCategory').value != 'ITM') && (document.getElementById('classCategory').value != 'Math') && (document.getElementById('classCategory').value != 'Anthropology') && (document.getElementById('classCategory').value != 'Kinesiology')) {
+                errorBanner4.innerText = 'Please select a valid class category.';
+                errorBanner4.hidden = false;
+                hasErrors = true;
+            }
+            if ((!document.querySelector('#spring:checked')) && (!document.querySelector('#fall:checked'))) {
+                errorBanner5.innerText = 'Please select at least one semester.';
+                errorBanner5.hidden = false;
+                hasErrors = true;
+            }
+            if ((document.getElementById('creditAmount').value < 1) || (document.getElementById('creditAmount').value > 4)) {
+                errorBanner6.innerText = 'Please select a valid credit amount.';
+                errorBanner6.hidden = false;
+                hasErrors = true;
+            }
+
+            fetch("http://localhost/classes", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(postParameters)
+            })
+                .then(res => res.json().then(json => ({
+                    status: res.status,
+                    json
+                })))
+                .then(({ status, json }) => {
+                    if (status === 200) {
+                        successMessage.innerText = 'Course added successfully!';
+                        successBanner.hidden = false;
+                        console.log("Course added successfully.");
+                    }
+                });
+        });
+    </script>
+    <div id="right-bar2"></div>
+</body>
+
+</html>
