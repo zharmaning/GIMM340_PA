@@ -281,7 +281,8 @@
             }
 
             const id = urlParams.get('id');
-            fetch(`http://localhost/classes/${id}`, {
+            // fetch(`http://localhost/classes/${id}`, {
+            fetch(`/classes/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
